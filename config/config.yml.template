@@ -1,0 +1,8 @@
+# Szablon konfiguracji tunelu Cloudflare dla ZMS
+tunnel: stable-diffusion-pod
+credentials-file: /root/.cloudflared/stable-diffusion-pod.json
+
+ingress:
+  - hostname: stable-diffusion-pod.zmscompany.org
+    service: http://localhost:7860
+  - service: http_status:404
