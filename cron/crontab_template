@@ -1,0 +1,11 @@
+# === CRON TEMPLATE ===
+# Harmonogram automatycznego działania środowiska
+
+# Co godzinę — backup danych na GCS
+0 * * * * /bin/bash /root/auto_gcs_backup.sh >> /root/auto_backup_log.txt 2>&1
+
+# Co 12 godzin — generowanie pliku wiedzy
+*/12 * * * * /bin/bash /root/auto_generate_wiedza.sh >> /root/auto_wiedza_log.txt 2>&1
+
+# Co tydzień — automatyczne czyszczenie danych
+0 3 * * 0 /bin/bash /root/cleanup.sh >> /root/cleanup_log.txt 2>&1
